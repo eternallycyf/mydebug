@@ -20,7 +20,7 @@ const lastUpdated = dateFormat(timestamp, 'yyyy-MM-dd hh:mm:ss')
 自己重新定义一个时间过滤的函数
 ```
 
-## react return 加注释就报错
+## 4.react return 加注释就报错
 ```js
 # 1
 const Hello = ()=> {
