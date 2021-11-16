@@ -31,3 +31,29 @@ const Hello = ()=> {
 # 2 return 后面什么都不写也会报错
 ```
 
+## 5. rcpress build上传后 刷新就404
+```js
+由于rcpress 只提供了 history API 路由的跳转方式
+所以一旦刷新就会寻找每个文件夹的index.html
+但是并没有 就自动跳转到404页面 由于rcpress build没有自动加404界面
+所以刷新就会报错
+
+解决办法 在 dist目录 复制index.html所有内容 复制到创新的 404.html中
+
+我的 cicd
+
+#!/usr/bin/env sh
+
+set -e
+rm -rf docs/.rcpress/dist
+npm run build
+cd docs/.rcpress/dist
+cp index.html 404.html
+git init
+git add -A
+git commit -m 'deploy'
+git push -f git@github.com:eternallycyf/pluviophobe-react-document.git master:gh-pages
+
+cd -
+```
+
