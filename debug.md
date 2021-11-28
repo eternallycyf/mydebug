@@ -57,3 +57,15 @@ git push -f git@github.com:eternallycyf/pluviophobe-react-document.git master:gh
 cd -
 ```
 
+
+## 6. 阿里云 mysql 本地 navicat 不能连接 提示1045
+```js
+首先需要服务器防火墙开放3306端口 阿里云安全组放行3306
+不能连接的原因是root用户初始化的host是 localhost 不能远程连接
+需要手动更改 root用户的 host , 由 localhost 变为 %
+我使用的是宝塔面板 所以下载了一个phpadmin 然后在 名称为 mysql的数据库的user表
+将root用户的 host , 由 localhost 变为 %
+随后重启 Mysql
+就可以连接了
+navicat 主机是公网ip root 密码是自己设置的
+```
