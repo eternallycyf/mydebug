@@ -69,3 +69,22 @@ cd -
 就可以连接了
 navicat 主机是公网ip root 密码是自己设置的
 ```
+
+## 7. vscode tsconfig path 别名不起作用
+```js
+// 可以看 vscode右下角提示, 在某个文件时 就会显示 tsconfig or jsconfig 是否生效
+项目的根路径配置了一个 tsconfig.json 其中有配置 path别名 但只有ts文件生效
+项目使用的是 jsx 语法 , 别名没有起作用
+我首先配置了 一个jsconfig.json 还是没反应 到vscode github issues 上看了下
+tsconfig.json jsconfig.json 如果同时存在 就只有 tsconfig.json 生效
+如果需要 ts js 文件都生效需要 在tsconfig.json 中配置
+{
+  "compilerOptions":{
+    "allowJs": true,   // 允许 js
+    "outDir": "./xxx", // 我的ts报了一个错误 这里随便写 只要不是项目文件名就行
+  }
+}
+vscode右下角已经显示 ok 了, 但是 事实还没有好, 不能跳转到 带有别名的路径
+此时 我将 jsx 文件改为 tsx 文件 , 他好了 !!!
+然后 再改回 jsx文件 就 success 了
+```
