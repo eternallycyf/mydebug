@@ -98,3 +98,67 @@ vscode右下角已经显示 ok 了, 但是 事实还没有好, 不能跳转到 �
 var reg1 = /\uff08/g
 这样就可以了
 ```
+
+## 9 vue 父传子 调试工具显示正常 但 console.log 输出  {__ob__: Observer}
+```js
+原因: 子组件渲染不会等待 axios的请求
+<子组件
+ v-if='xxx.length > 0'
+/>
+## 或者在子组件内部 监听
+  watch: {
+    chartData: {
+      deep: true,
+      immediate: true,
+      handler(val) {
+        this.chartData = val
+      }
+    }
+  },
+##      Object.assign({}, this.chartData)
+```
+
+## antd select placeholder 无效
+```js
+设置初始值为 undefined  就可以了
+<Select value={ xxx ? xxx : undefined } />
+```
+
+## vue props异步 watch监听
+```js
+// this.drawLine 原来是 mounted中的方法
+  props:['chartData'],
+  watch: {
+    chartData: {
+      deep: true,
+      handler(val) {
+        if (val) {
+          this.drawLine()
+        }
+      }
+    }
+  },
+```
+
+## vue在style中使用变量
+- 使用原生的方法 react也差不多
+- 需要注意的是
+```js
+<template>
+	<div class="test">
+		<span :style="spanStyle" class="span1">hello world</span>
+		<span style="--color:red" class="span1">hello world</span>
+	</div>
+</template>
+<script>
+export default {
+	data() {return { spanStyle: { "--color": "green" }};}
+}
+</script>
+<style scoped>
+.span1 {
+	color: var(--color);
+}
+</style>
+
+```
