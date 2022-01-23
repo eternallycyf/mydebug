@@ -142,7 +142,6 @@ var reg1 = /\uff08/g
 
 ## vue在style中使用变量
 - 使用原生的方法 react也差不多
-- 需要注意的是
 ```js
 <template>
 	<div class="test">
@@ -160,5 +159,26 @@ export default {
 	color: var(--color);
 }
 </style>
+```
+- react 如果开始了校验需要转变下类型 否则会报错
+```js
+import styles from './app.module.css'
+const App = () => {
+  var style = { "--color": 10 } as React.CSSProperties;
+  return (
+    <div className={styles.header} style={style}>
+      hello
+    </div>
+  );
+};
+export default App;
+#
+.header {
+  color: var(--color)
+}
+```
 
+## vscode 双击时删除键无效
+```js
+关闭Comment Translate插件
 ```
