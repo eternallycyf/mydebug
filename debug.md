@@ -182,3 +182,13 @@ export default App;
 ```js
 关闭Comment Translate插件
 ```
+
+## redux调试工具有的项目用不了
+```js
+一个新的umi项目 redux调试工具一直是黑框
+旧的项目依然可以用
+解决方法: Google商店重新安装 redux调试工具
+可能是新项目redux版本太高
+我重新装了变就可以用了
+redux调试工具貌似升级了 看着样式也变了
+```
