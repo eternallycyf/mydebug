@@ -192,3 +192,15 @@ export default App;
 我重新装了变就可以用了
 redux调试工具貌似升级了 看着样式也变了
 ```
+
+## dva subscriptions监听路由会触发两次
+- 使用 `umi` 的 `Link` 组件跳转 
+- 不要使用 `history.push()`
+- `github isszue` 上有相关的讨论
+- 还有一些别的解决方法
+
+## antd表单重新进入页面的时候有残留
+- 表现为多了一个值
+```js
+页面初始化时候 清除表单值 form.resetFieldValue
+```
