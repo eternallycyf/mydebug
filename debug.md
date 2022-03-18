@@ -204,3 +204,22 @@ redux调试工具貌似升级了 看着样式也变了
 ```js
 页面初始化时候 清除表单值 form.resetFieldValue
 ```
+
+## antd-vue 不能禁用年份
+```js
+升级到最新版
+```
+
+## 近期vue-cli找不到peacenotwar。docker打包失败
+```js
+vue-cli 依赖于 node-ipc
+node-ipc有用到peacenotwar这个包
+这个包的作者为了宣传乌克兰反战思想注入恶意代码
+流水线docker无法正常打包 报错找不到peacenotwar这个依赖
+https://www.zhihu.com/question/522144107
+# 解决方法
+在package.json中加入
+  "resolutions": {
+    "node-ipc": "9.2.1"
+  },
+```
