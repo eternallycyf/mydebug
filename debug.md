@@ -256,3 +256,23 @@ https://www.zhihu.com/question/522144107
 
 https://g2.antv.vision/zh/docs/manual/tutorial/scale#%E5%BA%A6%E9%87%8F%E5%AE%9A%E4%B9%89
 ```
+
+
+## Border放大变成空心
+```js
+增加背景色
+background:xxx
+```
+
+
+## vue-admin-element页签点击首页会触发上个页面的生命周期
+```js
+# 使用组件内的钩子 进行处理
+  beforeRouteEnter(to, from, next) {
+
+  },
+  beforeRouteLeave(to, from, next) {
+
+  }
+# 根据路由变化进行 watch 重新调用初始化函数
+```
