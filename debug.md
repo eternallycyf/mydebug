@@ -276,3 +276,11 @@ background:xxx
   }
 # 根据路由变化进行 watch 重新调用初始化函数
 ```
+
+## vue调试工具打不开
+```js 
+# vue2 
+Vue.config.devtools = true
+# vue3
+app.config.performance = true
+```
